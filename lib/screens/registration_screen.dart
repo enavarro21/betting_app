@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:betting_app/components/rounded_button.dart';
+import 'package:betting_app/utilities/constants.dart';
 
 class RegistrationScreen extends StatefulWidget {
   @override
@@ -17,22 +18,38 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            Text('This is the registration screen!'),
-            RoundedButton(
-              buttonTitle: 'Log in',
-              thisColor: Colors.lightBlueAccent,
-              onPressed: () {
-                // Go to log in screen
+            TextField(
+              keyboardType: TextInputType.emailAddress,
+              textAlign: TextAlign.center,
+              onChanged: (value) {
+                //Do something with the user input.
+                //email = value;
               },
+              // InputDecoration extracted to constants.dart
+              decoration:
+                  kTextFieldDecoration.copyWith(hintText: 'Enter your email.'),
             ),
             SizedBox(
-              height: 10.0,
+              height: 8.0,
+            ),
+            TextField(
+                obscureText: true,
+                textAlign: TextAlign.center,
+                onChanged: (value) {
+                  //Do something with the user input.
+                  //password = value;
+                },
+                decoration: kTextFieldDecoration.copyWith(
+                  hintText: 'Enter your password.',
+                )),
+            SizedBox(
+              height: 24.0,
             ),
             RoundedButton(
               buttonTitle: 'Register',
               thisColor: Colors.lightBlueAccent,
               onPressed: () {
-                // Go to registration screen
+                // Go to home screen
               },
             ),
           ],
